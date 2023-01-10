@@ -89,15 +89,34 @@ public class Recursion{
       }
       if (n<100){
         int x = n/10;
-        if (x==2) return "twenty"+"-"+toWords(n%10);
-        if (x==3) return "thirty"+"-"+toWords(n%10);
-        if (x==4) return "fourty"+"-"+toWords(n%10);
-        if (x==5) return "fifty"+"-"+toWords(n%10);
-        if (x==6) return "sixty"+"-"+toWords(n%10);
-        if (x==7) return "seventy"+"-"+toWords(n%10);
-        if (x==8) return "eighty"+"-"+toWords(n%10);
-        if (x==9) return "ninety"+"-"+toWords(n%10);
+        String r = "";
+        if (n%10!=0) r = "-"+toWords(n%10);
+        if (x==2) return "twenty"+r;
+        if (x==3) return "thirty"+r;
+        if (x==4) return "fourty"+r;
+        if (x==5) return "fifty"+r;
+        if (x==6) return "sixty"+r;
+        if (x==7) return "seventy"+r;
+        if (x==8) return "eighty"+r;
+        if (x==9) return "ninety"+r;
       }
-      return "too big number";
+      if (n<1000){
+        String out = toWords(n/100) + "-hundred";
+        if (n%100>0) out+= " and " + toWords(n%100);
+        return out;
+      }
+      if (n<1000000){
+        String out = toWords(n/1000) + " thousand";
+        if (n%1000>0) out+= " " + toWords(n%1000);
+        return out;
+      }
+      if (n<1000000000){
+        String out = toWords(n/1000000) + " million";
+        if (n%1000000>0) out+= " " + toWords(n%1000000);
+        return out;
+      }
+        String out = toWords(n/1000000000) + " billion";
+        if (n%1000000000>0) out+= " " + toWords(n%1000000000);
+        return out;
     }
 }
