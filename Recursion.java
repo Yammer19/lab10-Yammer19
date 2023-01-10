@@ -56,4 +56,48 @@ public class Recursion{
         }
       }
     }
+    public static String doWords(int n){
+      if (n==0) return "zero";
+      else{
+        return toWords(n);
+      }
+    }
+    public static String toWords(int n){
+      if(n<=19){
+        if (n==0) return "";
+        if (n==1) return "one";
+        if (n==2) return "two";
+        if (n==3) return "three";
+        if (n==4) return "four";
+        if (n==5) return "five";
+        if (n==6) return "six";
+        if (n==7) return "seven";
+        if (n==8) return "eight";
+        if (n==9) return "nine";
+        if (n==10) return "ten";
+        if (n==11) return "eleven";
+        if (n==12) return "twelve";
+        String t = "teen";
+        if (n==13) return "thir"+t;
+        if (n==14) return "four"+t;
+        if (n==15) return "fif"+t;
+        if (n==16) return "six"+t;
+        if (n==17) return "seven"+t;
+        if (n==18) return "eigh"+t;
+        if (n==19) return "nine"+t;
+
+      }
+      if (n<100){
+        int x = n/10;
+        if (x==2) return "twenty"+"-"+toWords(n%10);
+        if (x==3) return "thirty"+"-"+toWords(n%10);
+        if (x==4) return "fourty"+"-"+toWords(n%10);
+        if (x==5) return "fifty"+"-"+toWords(n%10);
+        if (x==6) return "sixty"+"-"+toWords(n%10);
+        if (x==7) return "seventy"+"-"+toWords(n%10);
+        if (x==8) return "eighty"+"-"+toWords(n%10);
+        if (x==9) return "ninety"+"-"+toWords(n%10);
+      }
+      return "too big number";
+    }
 }
