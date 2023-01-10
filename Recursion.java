@@ -47,7 +47,12 @@ public class Recursion{
       }
       else{
         for(char add : letters){
-          if(add==word.charAt(word.length()))System.out.print(printNoDoubleLetterWords(length,word+add,letters));
+          if(word.length()>0){
+            if(word.charAt(word.length()-1)!=add) printNoDoubleLetterWords(length,word+add,letters);
+          }
+          else{
+            printNoDoubleLetterWords(length,word+add,letters);
+          }
         }
       }
     }
